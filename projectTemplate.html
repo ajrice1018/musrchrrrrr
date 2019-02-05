@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+
+<body>
+    <br>
+    <h1>Eventbeats Project Template</h1>
+    <br>
+    <div id="buttonsGoHere">
+        <button data-people="Reese Witherspoon">Find events in my area</button>
+        <button data-people="Chris Hemsworth">Find similar artists</button>
+        <button data-people="Leonardo DiCaprio">Listen to music</button>
+        <button data-people="Tom Cruise">Find Tour Dates</button>
+        <button data-people="Samuel L. Jackson">Get Artist Info</button>
+    </div>
+    <div id="resetButton">
+        <button data-reset="1">Reset</button>
+    </div>
+    <br>
+    <div id="peopleSearch">
+        <form id="people-form">
+            <label for="people-input">Search a band!</label>
+            <input type="text" id="people-input"><br>
+            <br>
+            <!-- Button triggers new movie to be added -->
+            <input id="add-people" type="submit" value="Search">
+        </form>
+    </div>
+    <div id="artistsGoHere"></div>
+    <br>
+    <div id="eventsGoHere"></div>
+    
+
+    <script type="text/javascript">
+        var API_KEY = "SrukemE16v6dIJlj"
+        var buttonHandler = function () {
+            if ($(this).data("reset") == "1") {
+                //  $('#gifsGoHere').html("");
+                //  console.log("Cleared")
+                window.location.reload();
+                return;
+            }
+
+            var personName = $(this).data("people");
+            console.log(personName);
+            var queryURLEventSearch = "https://api.songkick.com/api/3.0/events.json?apikey=" + API_KEY +
+                "&artist_name=" + encodeURIComponent(personName);
+            $.ajax({
+                    url: queryURLEventSearch,
+                    method: "GET",
+                    //xhrFields: {
+                    //   withCredentials: true
+                    // }
+                })
+                .done(function (response) {
+                    console.log(response);
+                    var events = response.resultsPage.results.event;
+                    for (var i = 0; i < events.length; i++) {
+                        var displayName = events[i].displayName;
+                        var venue = events[i].venue.displayName;
+                        var location = events[i].location.city;
+                        var date = events[i].start.date;
+                        var eventDiv = $('<div>');
+                        var p = $('<p>').text("Event Info:  " + displayName);
+                        //  var animalImage = $('<img>');
+                        //   animalImage.attr('src', response.data[i].images.fixed_height.url);
+                        var pVenue = $('<p>').text("Venue: " + venue);
+                        var pLocation = $('<p>').text("Location: " + location);
+                        var pDate = $('<p>').text("Date: " + date);
+                        eventDiv.append(p, pVenue, pLocation, pDate);
+
+                        // animalDiv.append(animalImage);
+                        $('#eventsGoHere').append(eventDiv);
+                        $('#eventsGoHere').append($('<br>'));
+                        
+                    }
+                });
+            
+                var queryURL = "https://api.songkick.com/api/3.0/search/artists.json?apikey=" + API_KEY + "&query=" + encodeURIComponent(personName);
+                $.ajax({
+                        url: queryURL,
+                        method: "GET", 
+                        //xhrFields: {
+                         //   withCredentials: true
+                       // }
+                    })
+                    .done(function (response) {
+                        var artist = response.resultsPage.results.artist[0];
+                        var tourUntil = artist.onTourUntil;
+                        var uri = artist.uri;
+                        var displayName = artist.displayName;
+
+                        var artistDiv = $('<div>');
+                        var p = $('<p>').text("Artist Info:  " + displayName);
+                        //  var animalImage = $('<img>');
+                        //   animalImage.attr('src', response.data[i].images.fixed_height.url);
+                        var pTourUntil = $('<p>').text("Tour Until: " + tourUntil);
+                        var pUri = $('<p>').text("URL: " + uri);
+    
+                        artistDiv.append(p, pTourUntil, pUri);
+                        $('#artistsGoHere').append(artistDiv);
+                        
+                    })
+        };
+        $('button').on('click', buttonHandler);
+
+
+
+        $("#add-people").on("click", function (event) {
+            event.preventDefault();
+            // Then dynamicaly generating buttons for each movie in the array.
+            // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
+            var people = $("#people-input").val().trim();
+            var button = $("<button>");
+            // Adding a class
+            // a.addClass("people");
+            // Adding a data-attribute with a value of the movie at index i
+            button.attr("data-people", people);
+            // Providing the button's text with a value of the movie at index i
+            button.text(people);
+            // Adding the button to the HTML
+            $("#buttonsGoHere").append(button);
+            button.on("click", buttonHandler);
+
+        });
+    </script>
+
+
+</body>
+
+</html>
