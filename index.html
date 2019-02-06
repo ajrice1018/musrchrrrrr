@@ -11,9 +11,6 @@
     <title>Document</title>
 </head>
 <body>
-    <br>
-    <h1>Eventbeats Project Template</h1>
-    <br>
     <div id="resetButton">
         <button data-reset="1">Reset</button>
     </div>
@@ -33,11 +30,16 @@
 <script type="text/javascript">
 
 /////// GABE's CODE//////////////
+
+var API_KEY = "SrukemE16v6dIJlj";
+
+
     $("#add-people").on("click", function(event){
         event.preventDefault();
 
         var bandQuery = $("#people-input").val().trim();
 
+        //URL for pulling band ID
         var queryURL = "https://api.songkick.com/api/3.0/search/artists.json?apikey=" + API_KEY + "&query=" + bandQuery;
 
         //pulls band ID
@@ -52,88 +54,78 @@
         
             //function takes ID from API
             function eventData(apiID){
-                var newQueryURL = 
+                var eventQueryURL = 
                 "https://api.songkick.com/api/3.0/artists/"+ apiID +"/calendar.json?apikey=" + API_KEY+"&per_page=10";
 
             //pull event data using bandID from previous pull
                 $.ajax({
-                    url: newQueryURL,
+                    url: eventQueryURL,
                     method: "GET",
                 }).then(function(response){
 
                     console.log(response);
-
+                    
+                    //isolate event array
                     var eventArr = response.resultsPage.results.event;
+
                 // loop through events array to get information for first 10 results
-                //will add more functionality after group meeting tomorrow 2/5/2019
+                //create jquery div to place on html
+                
                     for (var i=0; i<eventArr.length; i++){
 
                         console.log(eventArr[i]);
+
+                    
 
                     }
 
                 });
             }
+
+
+            //function to pull similar artists
+            function similarArtists(apiID){
+                var similarArtistsURL =
+                 "https://api.songkick.com/api/3.0/artists/"+apiID+"/similar_artists.json?apikey="+API_KEY+"&per_page=5";
+                 $.ajax({
+                    url: similarArtistsURL,
+                    method: "GET",
+                }).then(function(response){
+                    console.log(response);
+
+                function createDIV(){
+
+                
+                    //isolate similar artists array
+                    var simArtArr = response.resultsPage.results.artist;
+
+                    //var artDiv = $("#")
+
+                    //loop through array to isolate each similar artist
+                    for(var i=0; i<simArtArr.length; i++){
+
+                        console.log(simArtArr.length);
+
+                    //create div element to hold similar band contents
+                    var simaArtDiv = $("<div>");
+
+                    $(simaArtDiv).text(simArtArr[i].displayName);
+
+                    $("#gifsGoHere").append(simaArtDiv);
+
+                    
+                    }
+                } 
+                createDIV();   
+                })
+                
+            }
+
             // calls eventData function passing in the bandID
             eventData(bandID); 
+            similarArtists(bandID);
         });
     });
-    
-
-
-
-
-    ////////// LISA's CODE///////////////
-
-
-
-
-        var API_KEY = "SrukemE16v6dIJlj";
-        var buttonHandler = function () {
-            if ($(this).data("reset") == "1") {
-                //  $('#gifsGoHere').html("");
-                //  console.log("Cleared")
-                window.location.reload();
-                return;
-            }
-            var personName = $(this).data("people");
-            console.log(personName);
-            var queryURL = "https://api.songkick.com/api/3.0/search/artists.json?apikey=" + API_KEY + "&query=" + encodeURIComponent(personName);
-            $.ajax({
-                    url: queryURL,
-                    method: "GET", 
-                })
-                .done(function (response) {
-                    console.log(response);
-                    for (var i = 0; i < response.data.length; i++) {
-                        var animalDiv = $('<div>');
-                        var p = $('<p>').text("Event Info " + response.data[i].rating);
-                        var animalImage = $('<img>');
-                        animalImage.attr('src', response.data[i].images.fixed_height.url);
-                        animalDiv.append(p);
-                        animalDiv.append(animalImage);
-                        $('#gifsGoHere').append(animalDiv);
-                    }
-                })
-        };
-        $('button').on('click', buttonHandler);
-        $("#add-people").on("click", function (event) {
-            event.preventDefault();
-            // Then dynamicaly generating buttons for each movie in the array.
-            // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
-            var people = $("#people-input").val().trim();
-            var button = $("<button>");
-            // Adding a class
-            // a.addClass("people");
-            // Adding a data-attribute with a value of the movie at index i
-            button.attr("data-people", people);
-            // Providing the button's text with a value of the movie at index i
-            button.text(people);
-            // Adding the button to the HTML
-            $("#buttonsGoHere").append(button);
-            button.on("click", buttonHandler);
-        });
-    
 
         </script>
     </body>
