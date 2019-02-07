@@ -16,23 +16,38 @@
 
  <!--Google Fonts-->
  <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 
  <!--css linked-->
  <link rel='stylesheet' href='assets/css/styles.css'>
 
+
+ <!--Google Web API library-->
+<script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
+
 </head>
 <body>
   <div class="container">
+    <!--logo row-->
     <div class="row">
       <div class="col s5.5"><h1>Musrch</h1></div>
     </div>  
+    
+    <!--User input-->
     <div class="row">
       <div class="input-field col s12 z-depth-5" id="searchBox">
-        <input id="search" type="search" class="search">
-        <label for="search" id="search">Type band name </label>
-        <a class="waves-effect waves-white btn-flat"><i class="material-icons left">search</i>search</a>
+        <section>
+          <form id='search-form' name="search-form" onsubmit="return search()">
+            <input type='search' id='query' class='search-field'>
+            <input type='submit' name='search-btn' id='search-btn' value='Search'class="waves-effect waves-white btn-flat">
+            
+          </form>
+        </section>
+     <!-- <a class="waves-effect waves-white btn-flat"><i class="material-icons left">search</i>search</a>--> 
       </div>
-
+    
+    
+      <!--Band info card-->
       <div class="col s12 m12">
         <div class="card horizontal z-depth-5">
           <div class="card-image">
@@ -69,7 +84,9 @@
         <div class="col s8 m8">
           <div class="card blue-grey darken-1 z-depth-5">
             <div class="card-content white-text">
-              <span class="card-title">This is where the top songs will load</span>
+              <div class='row' id="video-container">
+                <ul id='results'></ul>
+            </div>
             </div>
           </div>
         </div>
@@ -85,6 +102,6 @@
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
-
+  <script type="text/javascript" src="assets/javascript/apps.js"></script>
 
 </html>
