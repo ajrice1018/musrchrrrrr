@@ -35,7 +35,7 @@ $(function(){
     $.get(
       'https://www.googleapis.com/youtube/v3/search',{
         part:'snippet , id',
-        q: q,
+        q: query,
         type: 'video',
         key: 'AIzaSyBiX1fkoNR6cDb_QYJmjXDkU5A2zp1S3A4'},
         function(data){
