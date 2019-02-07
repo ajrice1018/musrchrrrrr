@@ -1,0 +1,52 @@
+body{
+    background-image: url("../images/background.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+ }
+
+ #search{
+    background-color: transparent;
+    color: white;
+}
+#searchBox{
+    background-color: rgba(235,177,196, 0.5);
+    border-radius: 3px;
+}
+
+label{
+    color:white;
+}
+
+h1{
+    font-family: 'Bungee Hairline', cursive;
+    font-weight: 1000;
+    font-size: 100px;
+    border-radius: 3px;
+    color: white;
+}
+
+.card-image{
+    width: 200px;
+    height: 200px;
+}
+
+.row .input-field input:focus {
+    
+    box-shadow: 0 1px 0 0 white !important
+  }
+
+  .waves-effect, .waves-white, .btn-flat{
+      color: white;
+  }
+
+  .row{
+    font-family: 'Questrial', sans-serif;
+
+  }
+
+  input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
