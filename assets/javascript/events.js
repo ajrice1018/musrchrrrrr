@@ -3,7 +3,9 @@ var API_KEY = "SrukemE16v6dIJlj"
         
         $("#search-form").submit("click", function(event){
         event.preventDefault();
+        $("#eventsGoHere").empty();
 
+            
             var bandQuery = $("#query").val().trim();
         
             
@@ -24,13 +26,11 @@ var API_KEY = "SrukemE16v6dIJlj"
                         var date = events[i].start.date;
                         var eventDiv = $('<div>');
                         var p = $('<p>').text("Event Info:  " + displayName);
-                        //  var animalImage = $('<img>');
-                        //   animalImage.attr('src', response.data[i].images.fixed_height.url);
                         var pVenue = $('<p>').text("Venue: " + venue);
                         var pLocation = $('<p>').text("Location: " + location);
                         var pDate = $('<p>').text("Date: " + date);
                         eventDiv.append(p, pVenue, pLocation, pDate);
-                        // animalDiv.append(animalImage);
+                        
                         $('#eventsGoHere').append(eventDiv);
                         $('#eventsGoHere').append($('<br>'));
                         
