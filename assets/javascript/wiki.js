@@ -12,6 +12,8 @@ function search(){
     //clear results
     $('#results').html('');
     $('#buttons').html('');
+    $('#bandPic').html('');
+
   
     //Get Form Input
     q = $('#query').val();
