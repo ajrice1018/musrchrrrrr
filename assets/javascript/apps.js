@@ -68,7 +68,7 @@ $(function(){
     var output = '<li>' +
     '<div class="list-right">'+ `<h3>${title}</h3>` +
     `<iframe id="player" type="text/html" width="640" height="390"
-    src="http://www.youtube.com/embed/${videoId}"> frameborder="0"></iframe>` +
+    src="https://www.youtube.com/embed/${videoId}"> frameborder="0"></iframe>` +
     '</div>'+
     '</li>'+
     '<div class="clearfix"></div>'+
