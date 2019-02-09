@@ -1,6 +1,6 @@
 //Click function for youtube
 $(function(){
-    $('#search-form').submit(function(e){
+    $('#search-btn').click(function(e){
       e.preventDefault();
       search();
     });
@@ -20,6 +20,8 @@ $(function(){
     // getRelatedArtists()
 
     getVideos(q);
+    wikiSearch(q);
+    wikiImages(q);
   };
 
   // $('button.related-artist').on('click', function() {
@@ -67,8 +69,8 @@ $(function(){
     // Build Output String
     var output = '<li>' +
     '<div class="list-right">'+ `<h3>${title}</h3>` +
-    `<iframe id="player" type="text/html" width="640" height="390"
-    src="http://www.youtube.com/embed/${videoId}"> frameborder="0"></iframe>` +
+    `<iframe id="player" type="text/html" width="responsive" height="responsive"
+    src="https://www.youtube.com/embed/${videoId}"> frameborder="0"></iframe>` +
     '</div>'+
     '</li>'+
     '<div class="clearfix"></div>'+
@@ -76,3 +78,42 @@ $(function(){
   
     return output;
   } 
+
+  // This function pulls the main thumbnail from wikipedia
+
+function wikiImages (txt) {
+
+  $.ajax({
+    url: `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageimages%7Cpageterms&generator=prefixsearch&redirects=1&formatversion=2&piprop=thumbnail&pithumbsize=250&pilimit=20&wbptterms=description&gpssearch=${txt}&gpslimit=20`,
+    method: "GET",
+    dataType: "jsonp",
+    success: function(newData) {
+
+          $("#bandPic").html(`<img src='${newData.query.pages[0].thumbnail.source}' class='responsive-img valign'>`);
+
+      }
+    }
+  )
+};
+
+// This function pulls the first paragraph from wikipedia
+
+function wikiSearch (txt) {
+
+  $.ajax({
+      type: "GET",
+      url: "https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=opensearch&search=" + txt + "&limit=1&format=json",
+      contentType: "application/json; charset=utf-8",
+      async: false,
+      dataType: "json",
+      success: function (data, textStatus, jqXHR) {
+          var firstText = data[2][0];
+              console.log(firstText);
+          $("#bandInfo").html(firstText);
+
+      },
+      error: function (errorMessage) {
+          alert(errorMessage);
+      }
+  });
+}

@@ -36,32 +36,32 @@
     <!--User input-->
     <div class="row">
       <div class="input-field col s12 z-depth-5" id="searchBox">
-        <section>
-          <form id='search-form' name="search-form">
+          <!--<form id='search-form' name="search-form">
             <input type='search' id='query' class='search-field'>
-            <input type='submit' name='search-btn' id='search-btn' value='Search'class="waves-effect waves-white btn-flat">
-            
+            <input type='submit' name='search-btn' id='search-btn' value='Search'class="waves-effect waves-white btn-flat">--> 
+            <form>
+            <div class="input-field col s12">
+                <input id="query" type="text" class="input">
+                <label for="text">Type band/artist name here</label>
+            <a class="waves-effect waves-white btn-flat" id='search-btn'><i class="material-icons left">search</i>search</a>
+          </div>
           </form>
-        </section>
      <!-- <a class="waves-effect waves-white btn-flat"><i class="material-icons left">search</i>search</a>--> 
       </div>
-    
+    </div>
     
       <!--Band info card-->
-      <div class="col s12 m12">
-        <div class="card horizontal z-depth-5">
-          <div class="card-image">
+      <div class="row">
+
+      <div class="col s12 ">
+        <div class="card horizontal z-depth-5" id="entire">
+          <div class="card-image" id="bandPic">
             <img src="assets/images/sharon.jpeg">
           </div>
           <div class="card-stacked">
-            <div class="card-content">
-              <p>This is where band information will go</p>
-              <p>Band Name</p>
-              <p>Genre</p>
-              <p>This is where band information will go</p>
-
-            </div>
-            <div class="card-action">
+              <div class="card-content" id="bandInfo">
+              </div>
+              <div class="card-action">
               <a href="#">maybe this is a link to band website?</a>
             </div>
           </div>
@@ -74,15 +74,15 @@
     <div class="row">
       
         <div class="col s4 m4">
-          <div class="card-panel z-depth-5">
+          <div class="card-panel z-depth-5" id="entire">
             <span class="black-text" id="eventsGoHere">
             </span>
           </div>
         </div>
         
-        <div class="col s8 m8">
-          <div class="card blue-grey darken-1 z-depth-5">
-            <div class="card-content white-text">
+        <div class="col s8 m8" >
+          <div class="card-panel z-depth-5" id="entire">
+            <div class="card-content">
               <div class='row' id="video-container">
                 <ul id='results'></ul>
             </div>
@@ -101,7 +101,8 @@
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
+  
   <script type="text/javascript" src="assets/javascript/apps.js"></script>
   <script type="text/javascript" src ="assets/javascript/events.js"></script>
-
+  <!-- <script type="text/javascript"  src="assets/javascript/wiki.js"></script> -->
 </html>

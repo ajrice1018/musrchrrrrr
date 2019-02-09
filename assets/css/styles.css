@@ -6,7 +6,7 @@ body{
     background-size: cover;
  }
 
- #search{
+#search{
     background-color: transparent;
     color: white;
 }
@@ -15,6 +15,11 @@ body{
     border-radius: 3px;
 }
 
+#entire{
+    background-color: rgb(180,191,195, 0.5);
+  
+
+}
 label{
     color:white;
 }
@@ -29,7 +34,7 @@ h1{
 
 .card-image{
     width: 200px;
-    height: 200px;
+    height: 100%;
 }
 
 .row .input-field input:focus {
@@ -46,7 +51,26 @@ h1{
 
   }
 
+
+  /*This is a mess due to not being able to use node to then use SASS to change the Materialze default stylings*/
   input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
     background-color: transparent;
     border: none;
     border-bottom: 1px solid white;}
+
+
+    input:not([type]):focus:not([readonly])+label, input[type=text]:not(.browser-default):focus:not([readonly])+label, input[type=password]:not(.browser-default):focus:not([readonly])+label, input[type=email]:not(.browser-default):focus:not([readonly])+label, input[type=url]:not(.browser-default):focus:not([readonly])+label, input[type=time]:not(.browser-default):focus:not([readonly])+label, input[type=date]:not(.browser-default):focus:not([readonly])+label, input[type=datetime]:not(.browser-default):focus:not([readonly])+label, input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label, input[type=tel]:not(.browser-default):focus:not([readonly])+label, input[type=number]:not(.browser-default):focus:not([readonly])+label, input[type=search]:not(.browser-default):focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label {
+    color: #ffffff;
+    }
+
+    .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
+       color:white;
+    }
+
+    .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+        color:rgb(46, 46, 46);
+        margin-right: 24px;
+        -webkit-transition: color .3s ease;
+        transition: color .3s ease;
+        text-transform: uppercase;
+    }
