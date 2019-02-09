@@ -16,7 +16,7 @@ body{
 }
 
 #entire{
-    background-color: rgb(180,191,195, 0.5);
+    background-color: rgb(180,191,195, 0.7);
   
 
 }
@@ -74,5 +74,4 @@ h1{
         transition: color .3s ease;
         text-transform: uppercase;
     }
-
     
