@@ -1,7 +1,4 @@
 
-$(document).ready(function(){
-    $('#entire').scrollSpy();
-  });
         
 
 //Click function for youtube

@@ -16,7 +16,7 @@ body{
 }
 
 #entire{
-    background-color: rgb(180,191,195, 0.5);
+    background-color: rgb(180,191,195, 0.7);
   
 
 }
@@ -51,6 +51,11 @@ h1{
 
   }
 
+  .page-footer{
+      background-color: : transparent;
+
+  }
+
 
   /*This is a mess due to not being able to use node to then use SASS to change the Materialze default stylings*/
   input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
@@ -74,5 +79,4 @@ h1{
         transition: color .3s ease;
         text-transform: uppercase;
     }
-
     
