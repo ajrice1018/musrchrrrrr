@@ -1,7 +1,8 @@
 var API_KEY = "SrukemE16v6dIJlj"
-
         
-        $("#search-form").submit("click", function(event){
+        
+        
+        $("#search-btn").click("click", function(event){
         event.preventDefault();
         $("#eventsGoHere").empty();
 

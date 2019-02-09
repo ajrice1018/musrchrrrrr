@@ -1,6 +1,12 @@
+
+$(document).ready(function(){
+    $('#entire').scrollSpy();
+  });
+        
+
 //Click function for youtube
 $(function(){
-    $('#search-form').submit(function(e){
+    $('#search-btn').click(function(e){
       e.preventDefault();
       search();
     });
