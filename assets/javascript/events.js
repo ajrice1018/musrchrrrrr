@@ -1,5 +1,8 @@
+//////API KEY///////////
+
 var API_KEY = "SrukemE16v6dIJlj"
 
+///////////On-Click to trigger API query////////
         
         $("#search-form").submit("click", function(event){
         event.preventDefault();
