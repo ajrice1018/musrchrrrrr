@@ -68,8 +68,8 @@ $(function(){
   
     // Build Output String
     var output = '<li>' +
-    '<div class="list-right">'+ `<h3>${title}</h3>` +
-    `<iframe id="player" type="text/html" width="responsive" height="responsive"
+    '<div class="list-right">'+ `<h5>${title}</h5>` +
+    `<iframe id="player" type="text/html" width="100%" height="390px"
     src="https://www.youtube.com/embed/${videoId}"> frameborder="0"></iframe>` +
     '</div>'+
     '</li>'+
