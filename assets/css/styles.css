@@ -15,12 +15,13 @@ body{
     border-radius: 3px;
 }
 
-#entire{
+ #entire, .card-panel, .card-horizontal{
     background-color: rgb(180,191,195, 0.7);
-  
-
+    display: none;
 }
-label{
+
+
+label, .input-field>label{
     color:white;
 }
 
@@ -33,7 +34,7 @@ h1{
 }
 
 .card-image{
-    width: 200px;
+    width: 100%;
     height: 100%;
 }
 
@@ -51,13 +52,18 @@ h1{
 
   }
 
-  .page-footer{
-      background-color: : transparent;
-
+ .card-action, #card-content{
+    float: left;
+    clear: both;
   }
 
 
   /*This is a mess due to not being able to use node to then use SASS to change the Materialze default stylings*/
+    input[type=text]:not(.browser-default):focus:not([readonly]){
+        border-bottom: none;
+    }
+
+
   input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
     background-color: transparent;
     border: none;

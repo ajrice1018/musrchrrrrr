@@ -39,7 +39,7 @@ $(function(){
         part:'snippet , id',
         q: query,
         type: 'video',
-        key: 'AIzaSyBiX1fkoNR6cDb_QYJmjXDkU5A2zp1S3A4'},
+        key: 'AIzaSyD-NdDziv7xe_alZgIBCkE2DeYZRTZPfYo'},
         function(data){
    
          // TODO - clear previous results

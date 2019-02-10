@@ -1,21 +1,29 @@
-# MuSrchrrrrr
-What the project does
-Why the project is useful
-How users can get started with the project
-Where users can get help with your project
-Who maintains and contributes to the project
+## Musrch
+
+Musrch is an app that brings together band/artist information in one click of a button. Imagine you're out at a concert and the opening band is somebody you've never heard of, you immediatly want to know tour dates, band info, and music videos of their top listened to tracks. Usually you would have multiple tabs open to get all of this information. With Musrch, all the info you want is on one page!
 
 #Links
-https://github.com/ajrice1018/musrchrrrrr
-https://ajrice1018.github.io/musrchrrrrr/
+-[Link to Project Repository](https://github.com/ajrice1018/musrchrrrrr "Link to project Repo")
+-[View Project in Browser](https://ajrice1018.github.io/musrchrrrrr/ "View app in browser")
 
-*Presentation Outline*
-* The structure of your presentation.
-* The key messages you need to show.
-* You only have 10 minutes to talk (review what shouldn’t be in the presentation)
+#Technology Used
+* HTML
+* CSS
+* jQuery
+* Javascript
+* Ajax
+* Materialize (for styling)
 
-The presentation of any project to an audience must flow like a story. Your narrative should open on a conflict, hint at a potential resolution for that problem, depict the steps taken to resolve the issue, and finally end on the resolution of the conflict with an eye toward the future. In other words:
-* What problem does your app focus on.
-* How does your app solve this problem at a high-level.
-* What steps did you take to build the app.
-* Show the app running and solving the problem that began your story. Also talk about what features you’d like to add in an update to your app.xw
+#API Calls
+* SongKick
+* Wikipedia
+* Youtube
+
+#Authors aka JANGLE
+- Justin
+- Andy
+- Naomi
+- Gabe
+- Lisa
+
+
