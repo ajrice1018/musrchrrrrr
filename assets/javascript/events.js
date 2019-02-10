@@ -1,3 +1,8 @@
+$(document).on('click','#search-btn', function(e){
+    $("#entire, .card-panel, .card-horizontal").fadeIn(2000);
+    
+})
+
 //////API KEY///////////
 
 var API_KEY = "SrukemE16v6dIJlj"
@@ -20,14 +25,8 @@ $("#appendtome").empty();
             method: "GET", 
         })
         .done(function (response) {
-
-            
-            
-            var uri = response.resultsPage.results.artist[0].uri;
-              
-
+        var uri = response.resultsPage.results.artist[0].uri;
          $('#bandURL').attr("href", uri);
-        
         });
 
     ////////EVENTS TABLE API CALL//////////////
@@ -35,7 +34,6 @@ $("#appendtome").empty();
     $.ajax({
             url: queryURLEventSearch,
             method: "GET",
-            
         })
         .done(function (response) {
 
@@ -43,25 +41,17 @@ $("#appendtome").empty();
             var events = response.resultsPage.results.event;
 
             //For loop to populate table
-
             for (var i = 0; i < events.length; i++) {
-
                 var venue = events[i].venue.displayName;
                 var location = events[i].location.city;
                 var date = events[i].start.date;
-
                 var newTableRow = $("<tr>");
                 var venueTab = $("<td>").text(venue);
                 var locationTab = $("<td>").text(location);
                 var dateTab = $("<td>").text(date);
-
                 $(newTableRow).append(venueTab, locationTab, dateTab)
-
                 $("#appendtome").append(newTableRow);
-                
-                
             }
-
         });
     
 });      

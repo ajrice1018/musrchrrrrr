@@ -15,11 +15,12 @@ body{
     border-radius: 3px;
 }
 
-#entire{
+ #entire, .card-panel, .card-horizontal{
     background-color: rgb(180,191,195, 0.7);
-  
-
+    display: none;
 }
+
+
 label{
     color:white;
 }
@@ -51,9 +52,9 @@ h1{
 
   }
 
-  .page-footer{
-      background-color: : transparent;
-
+ .card-action, #card-content{
+    float: left;
+    clear: both;
   }
 
 
