@@ -11,7 +11,7 @@ $(function () {
 
     })
 
-    // KEY EVENT THAT I WISH WORKED!
+    // onKEY EVENT 
     $(document).on('keyup', function (event) {
         console.log(event.which);
         if (event.which == 13) {
