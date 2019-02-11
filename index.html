@@ -1,95 +1,96 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Musrch</title>
- <!-- Compiled and minified CSS -->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
- <!-- Compiled and minified JavaScript -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
- <!--Icons-->
- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
- <!--Google Fonts-->
- <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline" rel="stylesheet">
- <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
- <!--css linked-->
- <link rel='stylesheet' href='assets/css/styles.css'>
- <!--Google Web API library-->
-<script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!--Icons-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Google Fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+  <!--css linked-->
+  <link rel='stylesheet' href='assets/css/styles.css'>
+  <!--Google Web API library-->
+  <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
+
 </head>
+
 <body>
   <div class="container">
     <!--logo row-->
     <div class="row">
-      <div class="col s5.5"><h1>Musrch</h1></div>
-    </div>  
-    
+      <div class="col s5.5">
+        <h1>Musrch</h1>
+      </div>
+    </div>
+
     <!--User input-->
     <div class="row">
       <div class="input-field col s12 z-depth-5" id="searchBox">
-          <!--<form id='search-form' name="search-form">
-            <input type='search' id='query' class='search-field'>
-            <input type='submit' name='search-btn' id='search-btn' value='Search'class="waves-effect waves-white btn-flat">--> 
-            <form id="form">
-            <div class="input-field col s12">
-                <input id="query" type="text" class="input">
-                <label for="text">Type band/artist name here</label>
+        <form id="searchFormEvent" onsubmit="event.preventDefault();">
+          <div class="input-field col s12">
+            <input id="query" type="text" class="input">
+            <label for="text">Type band/artist name here</label>
             <a class="waves-effect waves-white btn-flat" id='search-btn'><i class="material-icons left">search</i>search</a>
           </div>
-          </form>
-     <!-- <a class="waves-effect waves-white btn-flat"><i class="material-icons left">search</i>search</a>--> 
+        </form>
       </div>
     </div>
-    
+
     <!--Band info card-->
-      <div class="row" >
-        <div class="col s12 ">
-          <div class="card horizontal z-depth-5" id="entire" >
-            <div class="card-image" id="bandPic">
-              <img src="assets/images/sharon.jpeg">
-            </div>
-                <div class="card-stacked">
-                <div class="card-content" id="bandInfo"></div>
-                  <div class="card-action">
-                     <a id="bandURL">SongKick Band Wesbite</a>
-                  </div>
-                </div>
-          </div>
-        </div>    
-    </div>
-    <!--this row contains the events div and the youtube div-->
     <div class="row">
-        <div class="col s6 m6">
-          <div class="card-panel z-depth-5">
-            <span class="black-text" id="eventsGoHere">
-              <!-- Event Table -->
-                    <table>
-                        <thead>
-                          <tr>
-                              <th>Venue</th>
-                              <th>Location</th>
-                              <th>Date</th>
-                          </tr>
-                        </thead>
-                        <tbody id="appendtome" class="striped" class="responsive-table"></tbody>
-                    </table>
-                    </span>
-                  </div>
-                </div>
-        
-        <div class="col s6 m6" >
-          <div class="card-panel z-depth-5" style="overflow-y: scroll; height:850px;">
-            <div class="card-content">
-              <div class='row' id="video-container">
-                <ul id='results'></ul>
-            </div>
+      <div class="col s12 ">
+        <div class="card horizontal z-depth-5" id="entire">
+          <div class="card-image" id="bandPic">
+            <img src="">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content" id="bandInfo"></div>
+            <div class="card-action">
+              <a id="bandURL">SongKick Band Website</a>
             </div>
           </div>
         </div>
+      </div>
     </div>
-  
-   <!-- <footer class="page-footer">
+    <!--this row contains the events div and the youtube div-->
+    <div class="row">
+      <div class="col s6 m6">
+        <div class="card-panel z-depth-5">
+          <span class="black-text" id="eventsGoHere">
+            <!-- Event Table -->
+            <table>
+              <thead>
+                <tr>
+                  <th>Venue</th>
+                  <th>Location</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody id="appendtome" class="striped" class="responsive-table"></tbody>
+            </table>
+          </span>
+        </div>
+      </div>
+
+      <div class="col s6 m6" id='right'>
+        <div class="card-panel z-depth-5" style="overflow-y: scroll; height:850px;">
+          <div class="card-content">
+            <div class='row' id="video-container">
+              <ul id='results'></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <footer class="page-footer">
          <div class="footer-copyright">
           <div class="container">
           © 2019 Copyright by JANGL
@@ -97,19 +98,18 @@
           </div>
         </div>
       </footer>-->
-          
-  
-  
-  
-  
+
+
+
+
+
   </div>
 </body>
-<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
-  
-  <script type="text/javascript" src="assets/javascript/apps.js"></script>
-  <script type="text/javascript" src ="assets/javascript/events.js"></script>
-  <!-- <script type="text/javascript"  src="assets/javascript/wiki.js"></script> -->
+
+<script type="text/javascript" src="assets/javascript/apps.js"></script>
+<script type="text/javascript" src="assets/javascript/events.js"></script>
+<!-- <script type="text/javascript"  src="assets/javascript/wiki.js"></script> -->
+
 </html>
