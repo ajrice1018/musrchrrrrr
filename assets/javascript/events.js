@@ -1,6 +1,26 @@
-$(document).on('click','#search-btn', function(e){
-    $("#entire, .card-panel, .card-horizontal").fadeIn(2000);
-    
+//divs load upon search
+$(function () {
+    $('#searchFormEvent').on('click', function (e) {
+        e.preventDefault();
+        console.log('#searchFormEvent preventDefault\'d')
+    })
+    $('#search-btn').on('click', function (e) {
+        e.preventDefault();
+        console.log('#search-btn clicked!!!')
+        $("#entire, .card-panel, .card-horizontal").fadeIn(2000);
+
+    })
+
+    // onKEY EVENT 
+    $(document).on('keyup', function (event) {
+        console.log(event.which);
+        if (event.which == 13) {
+            event.preventDefault();
+            $('#search-btn').click();
+            console.log('#search-btn click()');
+        }
+        return false;
+    });
 })
 
 
@@ -11,10 +31,11 @@ var API_KEY = "SrukemE16v6dIJlj"
 
 ///////////On-Click to trigger API query////////
 
-$("#search-btn").on("click", function(event){
-event.preventDefault();
+$("#search-btn").on("click", function (event) {
+    $("#entire, .card-panel, .card-horizontal").fadeIn(2000);
+    event.preventDefault();
 
-$("#appendtome").empty();
+    $("#appendtome").empty();
 
 
     var bandQuery = $("#query").val().trim();
@@ -24,15 +45,15 @@ $("#appendtome").empty();
     var queryURL = "https://api.songkick.com/api/3.0/search/artists.json?apikey=" + API_KEY + "&query=" + bandQuery;
     $.ajax({
             url: queryURL,
-            method: "GET", 
+            method: "GET",
         })
         .done(function (response) {
-        var uri = response.resultsPage.results.artist[0].uri;
-         $('#bandURL').attr("href", uri);
+            var uri = response.resultsPage.results.artist[0].uri;
+            $('#bandURL').attr("href", uri);
         });
 
     ////////EVENTS TABLE API CALL//////////////
-    var queryURLEventSearch = "https://api.songkick.com/api/3.0/events.json?apikey=" + API_KEY +"&per_page=10&artist_name=" + bandQuery;
+    var queryURLEventSearch = "https://api.songkick.com/api/3.0/events.json?apikey=" + API_KEY + "&per_page=10&artist_name=" + bandQuery;
     $.ajax({
             url: queryURLEventSearch,
             method: "GET",
@@ -55,5 +76,5 @@ $("#appendtome").empty();
                 $("#appendtome").append(newTableRow);
             }
         });
-    
-});      
+
+});
