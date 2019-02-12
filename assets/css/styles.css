@@ -24,7 +24,7 @@ body {
 }
 
 
-label,
+label, text, .input,
 .input-field>label {
     color: white;
 }
@@ -47,6 +47,7 @@ h1 {
     box-shadow: 0 1px 0 0 white !important
 }
 
+::placeholder,
 .waves-effect,
 .waves-white,
 .btn-flat { 
