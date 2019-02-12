@@ -49,7 +49,7 @@ h1 {
 
 .waves-effect,
 .waves-white,
-.btn-flat {
+.btn-flat { 
     color: white;
 }
 
@@ -64,7 +64,25 @@ h1 {
     clear: both;
 }
 
+#col1, #col2{
+    position: relative;
+}
 
+
+@media screen and (max-width: 600px) {
+    #col1, #col2 {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 768px) 
+  {
+    #col1, #col2 {
+        width: 100%;
+      }
+    
+  }
+  
 /*This is a mess due to not being able to use node to then use SASS to change the Materialze default stylings*/
 input[type=text]:not(.browser-default):focus:not([readonly]) {
     border-bottom: none;
